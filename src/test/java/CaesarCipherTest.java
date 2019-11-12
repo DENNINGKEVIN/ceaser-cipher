@@ -17,44 +17,20 @@ public class CaesarCipherTest {
 
     @Test
     public void encode_encodeASingleLetterWithRightShiftOutOfBounds_a(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("z",1);
-        assertEquals("a", testCaesarCipher.getCipherText());
-    }
-
-    @Test
-    public void encode_encodeASingleLetterWithALeftShiftWithinBounds_b(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("d",-2);
-        assertEquals("b", testCaesarCipher.getCipherText());
-    }
-
-    @Test
-    public void encode_encodeASingleLetterWithALeftShiftOutOfBounds_b(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("a",-27);
-        assertEquals("z", testCaesarCipher.getCipherText());
-    }
-
-    @Test
-    public void encode_encodesUpperCaseToUpperCaseAndLowerCaseToLowerCase_B(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("A",-25);
-        assertEquals("B", testCaesarCipher.getCipherText());
-    }
-
-    @Test
-    public void encode_doesNotEncodeSymbolsAndPeriods_Space(){
-        CaesarCipher testCaesarCipher = new CaesarCipher(" ",-25);
-        assertEquals(" ", testCaesarCipher.getCipherText());
+        CaesarCipher testCaesarCipher = new CaesarCipher("b",1);
+        assertEquals("c", testCaesarCipher.getCipherText());
     }
 
     @Test
     public void encode_multiCharacterString_String(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("Frank a",1);
-        assertEquals("Gsbol b", testCaesarCipher.getCipherText());
+        CaesarCipher testCaesarCipher = new CaesarCipher("Kevin",1);
+        assertEquals("Lfwjo", testCaesarCipher.getCipherText());
     }
 
     @Test
     public void decode_reverseEncode_String(){
-        CaesarCipher testCaesarCipher = new CaesarCipher("Gsbol b", 1);
-        assertEquals("Frank a", testCaesarCipher.getPlainText());
+        CaesarCipher testCaesarCipher = new CaesarCipher("Lfwjo", 1);
+        assertEquals("Kevin", testCaesarCipher.getPlainText());
     }
 
 
